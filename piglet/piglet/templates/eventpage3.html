@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="../static/css/main.css">
+
+    <title>당신의 10년 후 모습은?</title>
+</head>
+<body>
+
+    <header id="header-center">
+        <div class="inner">
+            <a href="/" class="logo">Piglet</a>
+        </div>
+    </header>
+
+    <section id="banner-center-big">
+        <div class="eventpage-text-big">당신의 10년 후 모습입니다.</div>
+        <!--사진 모델 돌린 결과-->
+        <img src="../static/assets/강원구.jpg" alt="10년후" class="imglist-big">
+        <a class="kakao-link-btn" href="javascript:kakaoShare()">카카오톡 공유하기</a>
+
+        <div class="eventpage-text-small">전광판 인물은 실종된 OOO씨의 현재 추정 모습입니다.</div>
+        <div class="eventpage-pic">
+            <img src="../static/assets/강승영.jpg" alt="Photo 1" class="imglist">
+            <div class="eventpage-text-small">실종 당시 나이 00세</div>
+        </div>
+        <div class="eventpage-pic">
+            <img src="../static/assets/강승영.jpg" alt="Photo 1" class="imglist">
+            <div class="eventpage-text-small">현재 나이 00세</div>
+        </div>
+
+
+        <div class="eventpage-text-small">한 해 평균 00명의 장기실종자가 발생하고 있습니다.<br>이들이 가정으로 돌아갈 수 있게 도와주세요.</div>
+        <a href="/" class="eventpage-button-small">더 많은 장기실종자 현재 모습 확인하기</a>
+    </section>
+
+</body>
+</html>
+
+
+<!-- kakao sdk 호출 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+
+<script type="text/javascript">
+  // SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+  Kakao.init('af2d7c9cca2cc0b40099bfe948a0680c');
+
+  // SDK 초기화 여부를 판단합니다.
+  console.log(Kakao.isInitialized());
+
+  function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '당신의 10년 후 모습은?',
+        description: '사진을 넣어 확인해 보세요.',
+        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
+        link: {
+          mobileWebUrl: 'http://127.0.0.1:8000/eventpage1',
+          webUrl: 'http://127.0.0.1:8000/eventpage1',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: 'http://127.0.0.1:8000/eventpage1',
+            webUrl: 'http://127.0.0.1:8000/eventpage1',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
+
+</script>

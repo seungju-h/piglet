@@ -29,4 +29,6 @@ urlpatterns = [
     path('eventpage1', views.eventpage1, name='eventpage1'),
     path('eventpage2', views.eventpage2, name='eventpage2'),
     path('eventpage3', views.eventpage3, name='eventpage3'),
+    path('process_upload', views.process_upload, name='process_upload'),
+    path('dashboard', views.dashboard, name='dashboard'),
 ]

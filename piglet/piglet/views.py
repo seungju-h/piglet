@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 
 def main(request):
     return render(request, "main.html")
@@ -21,3 +22,22 @@ def eventpage2(request):
     return render(request, "eventpage2.html")
 def eventpage3(request):
     return render(request, "eventpage3.html")
+
+def dashboard(request):
+    return render(request, "dashboard.html")
+
+# 랜딩페이지 사진, 성별, 나이 입력후 백엔드 프로세스
+def process_upload(request):
+    if request.method == "POST":
+        # 데이터 받아오기
+        image = request.FILES.get("picture")
+        # age = request.POST.get("age")
+        gender = request.POST.get("gender")
+
+        # GAN 모델 추가하기
+
+        # 데이터 응답하기
+        response_data = {"message": "데이터 성공"}
+        return JsonResponse(response_data)
+
+    return JsonResponse({"message": "데이터 실패"})

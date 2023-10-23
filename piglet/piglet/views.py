@@ -18,8 +18,23 @@ def reportmissing(request):
 
 def eventpage1(request):
     return render(request, "eventpage1.html")
+
 def eventpage2(request):
+    if request.method == 'POST':
+        gender = request.POST.get('gender')
+        age = request.POST.get('age')
+        uploaded_image = request.FILES['picture']
+
+        # 업로드된 이미지를 저장할 경로
+        image_path = "uploads/" + uploaded_image.name
+
+        # 이미지를 저장
+        with open(image_path, 'wb') as destination:
+            for chunk in uploaded_image.chunks():
+                destination.write(chunk)
+
     return render(request, "eventpage2.html")
+
 def eventpage3(request):
     return render(request, "eventpage3.html")
 
